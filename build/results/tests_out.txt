@@ -1,0 +1,13 @@
+Breakpoint 1 at 0xfe: file source/main.c, line 31.
+Note: automatically using hardware breakpoints for read-only addresses.
+======================================================
+Running all tests..."
+
+"sensor: 0xFFFF -> PORTB: 0xFF, PORTD: 0x03"...
+	Expected 0xFF 
+	PORTB '0x800025:	0x00
+
+	Expected 0x03 
+	PORTD '0x80002b:	0x00
+======================================================
+Remote doesn't know how to detach

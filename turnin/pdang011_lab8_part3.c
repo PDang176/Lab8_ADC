@@ -7,7 +7,7 @@
  *	I acknowledge all content contained herein, excluding template or example
  *	code, is my own original work.
  *
- *	Video Link: https://drive.google.com/open?id=18SfpzVJqC4RnD4yWPsv7x28KfMDnVscN
+ *	Video Link: https://drive.google.com/open?id=18dsmRQmdDFdt76w-r0-SiVQ01W4NEMxS
  */
 #include <avr/io.h>
 #ifdef _SIMULATE_
@@ -22,16 +22,20 @@ int main(void) {
     /* Insert DDR and PORT initializations */
 	DDRA = 0x00; PORTA = 0xFF;
 	DDRB = 0xFF; PORTB = 0x00;
-	DDRD = 0xFF; PORTD = 0x00;
 
 	unsigned short sensor;
-	
+	const unsigned short MAX = 0x0380;
+
 	ADC_init();
     /* Insert your solution below */
     while (1) {
 	sensor = ADC;
-	PORTB = (char)sensor;
-	PORTD = (char)(sensor >> 8) & 0x03;
+	if(sensor >= MAX / 2){
+		PORTB = 0x01;
+	}
+	else{
+		PORTB = 0x00;
+	}
     }
     return 1;
 }

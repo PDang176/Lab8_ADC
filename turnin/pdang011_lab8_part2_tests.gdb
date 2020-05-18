@@ -26,16 +26,18 @@
 echo ======================================================\n
 echo Running all tests..."\n\n
 
-test "sensor: 0xFFFF => PORTB: 0xFF"
+test "sensor: 0xFFFF => PORTB: 0xFF, PORTD: 0x03"
 set main::sensor = 0xFFFF
 continue 5
 expectPORTB 0xFF
+expectPORTD 0x03
 checkResult 
 
-test "sensor: 0x0000 => PORTB: 0x00"
+test "sensor: 0x0000 => PORTB: 0x00, PORTD: 0x00"
 set main:sensor = 0x0000
 continue 5
 expectPORTB 0x00
+expectPORTD 0x00
 checkResult
 
 # Report on how many tests passed/tests ran

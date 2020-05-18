@@ -26,10 +26,10 @@
 echo ======================================================\n
 echo Running all tests..."\n\n
 
-test "sensor: 0xFFFF => PORTB: 0xFF"
+test "sensor: 0xFFFF => PORTB: 0x01"
 set main::sensor = 0xFFFF
 continue 5
-expectPORTB 0xFF
+expectPORTB 0x01
 checkResult 
 
 test "sensor: 0x0000 => PORTB: 0x00"
